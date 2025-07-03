@@ -1,0 +1,52 @@
+
+
+
+{
+    "auth_test_data": {
+      "valid_credentials": {
+        "email": "test.user@techcorp.com",
+        "password": "TestPassword123!",
+        "tenant_id": "tenant_001"
+      },
+      "invalid_credentials": [
+        {
+          "email": "invalid@techcorp.com",
+          "password": "wrongpassword",
+          "expected_error": "Invalid credentials"
+        },
+        {
+          "email": "test.user@wrongdomain.com",
+          "password": "TestPassword123!",
+          "expected_error": "User not found in tenant"
+        }
+      ]
+    },
+    "employee_test_data": {
+      "cross_tenant_test": {
+        "tenant_001_employee": {
+          "id": "user_001",
+          "email": "john.doe@techcorp.com",
+          "tenant_id": "tenant_001"
+        },
+        "tenant_002_employee": {
+          "id": "user_100",
+          "email": "alice.smith@startupxyz.com",
+          "tenant_id": "tenant_002"
+        }
+      }
+    },
+    "user_payload": {
+      "first_name": "Test",
+      "last_name": "User",
+      "email": "test.user@techcorp.com",
+      "department": "QA",
+      "title": "QA Analyst"
+    },
+    "ticket_payload": {
+      "title": "App crash when clicking save",
+      "description": "Observed on Chrome v117 during ticket creation",
+      "priority": "high",
+      "category": "Bug"
+    }
+  }
+  

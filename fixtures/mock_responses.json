@@ -1,0 +1,19 @@
+{
+    "auth_success": {
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+      "user": {
+        "email": "test.user@techcorp.com",
+        "role": "admin"
+      }
+    },
+    "user_created": {
+      "id": "user_999",
+      "email": "test.user@techcorp.com",
+      "status": "created"
+    },
+    "ticket_created": {
+      "id": "ticket_1111",
+      "status": "open"
+    }
+  }
+  

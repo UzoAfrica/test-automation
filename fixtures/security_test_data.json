@@ -1,0 +1,58 @@
+{
+  "xss_test_payloads": [
+    "<script>alert('XSS')</script>",
+    "javascript:alert('XSS')",
+    "<img src=x onerror=alert('XSS')>",
+    "<svg onload=alert('XSS')>",
+    "';alert('XSS');//"
+  ],
+  "sql_injection_payloads": [
+    "'; DROP TABLE users; --",
+    "' OR '1'='1",
+    "'; UPDATE users SET password='hacked' WHERE email='admin@techcorp.com'; --",
+    "' UNION SELECT * FROM sensitive_data --",
+    "admin'--"
+  ],
+  "authorization_test_cases": [
+    {
+      "description": "User cannot access other tenant's data",
+      "user_tenant": "tenant_001",
+      "attempted_access": "/api/v1/employees?tenant_id=tenant_002",
+      "expected_result": "403_forbidden"
+    },
+    {
+      "description": "Regular user cannot access admin endpoints",
+      "user_role": "employee",
+      "attempted_access": "/api/v1/admin/system-config",
+      "expected_result": "403_forbidden"
+    },
+    {
+      "description": "Expired JWT token rejected",
+      "token_status": "expired",
+      "attempted_access": "/api/v1/tickets",
+      "expected_result": "401_unauthorized"
+    }
+  ],
+  "input_validation_tests": [
+    {
+      "field": "email",
+      "invalid_inputs": [
+        "not-an-email",
+        "@invalid.com",
+        "user@",
+        "",
+        "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@test.com"
+      ]
+    },
+    {
+      "field": "password",
+      "invalid_inputs": [
+        "short",
+        "no-uppercase",
+        "NO-LOWERCASE",
+        "NoNumbers!",
+        "NoSpecialChars123"
+      ]
+    }
+  ]
+}
