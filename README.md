@@ -19,9 +19,13 @@ This project contains a full-stack automated test suite for a multi-tenant User 
 ```
 
 test-automation/
+
 ├── api\_tests/             # API test cases
+
 ├── ui\_tests/              # UI workflow & responsiveness
+
 ├── security\_tests/        # XSS, SQLi, Auth bypass
+
 ├── performance\_tests/     # Load/Stress tests via Locust
 ├── fixtures/              # Static test data and mock responses
 ├── utils/                 # Data generators and reporting utils
