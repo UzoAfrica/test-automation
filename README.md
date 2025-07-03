@@ -27,17 +27,23 @@ test-automation/
 ├── security\_tests/        # XSS, SQLi, Auth bypass
 
 ├── performance\_tests/     # Load/Stress tests via Locust
+
 ├── fixtures/              # Static test data and mock responses
+
 ├── utils/                 # Data generators and reporting utils
+
 ├── config/                # Pytest & Selenium configurations
+
 ├── reports/               # Test run outputs
+
 ├── requirements.txt       # Project dependencies
+
 ├── pytest.ini             # Test execution configuration
+
 └── TEST\_STRATEGY.md       # Full test methodology
 
 ````
 
----
 
 ##  Getting Started
 
@@ -48,7 +54,6 @@ test-automation/
 - ChromeDriver in PATH (for Selenium)
 - Internet access to install dependencies
 
----
 
 ###  1. Install Dependencies
 
